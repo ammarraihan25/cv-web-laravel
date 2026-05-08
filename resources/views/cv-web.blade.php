@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ammar.id</title>
+
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  @vite(['resources/css/style.css', 'resources/js/app.js'])
+</head>
+
+<body class="dark-mode">
+
+  <!-- Loading Animation -->
+  <div class="loader-wrapper" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">Ammar<span>.Id</span></div>
+      <div class="loader-line"></div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Ammar<span>.Id</span></a>
+
+      <div class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#work-experience" class="nav-link">Work Experience</a>
+        <a href="#activities" class="nav-link">Activities</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Dark/Light mode toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content reveal">
+          <p class="greeting">Hello, I'm</p>
+          <h1 class="hero-title">{{ $name ?? 'Muhamad Ammar Raihan Ardiyanto' }}</h1>
+          <h2 class="hero-subtitle">{{ $job_position ?? 'Junior Developer' }}</h2>
+          <p class="hero-description">
+            Problem solver and system builder. I specialize in building exceptional digital experiences and scalable
+            backends.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">Lihat Project</a>
+            <a href="#about" class="btn btn-outline">About Me</a>
+          </div>
+          <div class="hero-socials">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ammarraihan25" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/marrae_404?igsh=MXdmdGd6cXlsaHBwaw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="hero-image reveal right">
+          <div class="image-wrapper">
+            <!-- Profil Foto: Ganti URL dengan foto Anda -->
+            <img src="/profile.png" alt="{{ $name }}" id="profile-img">
+            <div class="image-backdrop"></div>
+            <div class="floating-badge badge-1">
+              <i class="fa-brands fa-laravel" style="color: #FF2D20;"></i> Laravel
+            </div>
+            <div class="floating-badge badge-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#02569B" xmlns="http://www.w3.org/2000/svg"><path d="M14.314 0L2.3 12L6 15.7L21.686 0H14.314ZM21.686 12L13.5 20.186L9.8 16.486L18 8.286L21.686 12ZM13.5 24H21.686L14.314 16.629L10.629 20.314L14.314 24H13.5Z"/></svg> Flutter
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Kenali saya lebih dekat</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text reveal left">
+            <p>
+              Saya adalah seorang Junior Developer yang bersemangat dengan fokus pada pembuatan sistem web modern.
+              Memiliki keahlian dalam mengubah desain yang kompleks menjadi website responsif yang fungsional, dan
+              membangun backend yang tangguh untuk mendukungnya.
+            </p>
+            <p>
+              Tujuan karier saya adalah terus berkembang dan menciptakan solusi teknologi yang memberikan dampak nyata.
+              Nilai utama saya adalah <strong>kualitas</strong>, <strong>kecepatan</strong>, dan <strong>kerja sama
+                tim</strong>.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div>
+                  <h4>Pendidikan</h4>
+                  <p>Politeknik Indonusa Surakarta</p>
+                </div>
+              </div>
+            </div>
+
+
+            <a href="/public/cv-dummy.pdf" class="btn btn-outline download-cv" download>
+              <i class="fa-solid fa-download"></i> Download CV
+            </a>
+          </div>
+          <div class="about-stats reveal right">
+            <div class="stat-box">
+              <h3 class="stat-number">15+</h3>
+              <p class="stat-text">Project Selesai</p>
+            </div>
+            <div class="stat-box">
+              <h3 class="stat-number">2+</h3>
+              <p class="stat-text">Tahun Pengalaman (Belajar)</p>
+            </div>
+            <div class="stat-box">
+              <h3 class="stat-number">10+</h3>
+              <p class="stat-text">Teknologi Dikuasai</p>
+            </div>
+            <div class="stat-box">
+              <h3 class="stat-number">100%</h3>
+              <p class="stat-text">Komitmen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section bg-light">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">My Skills</h2>
+          <p class="section-subtitle">Teknologi yang saya gunakan</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Web Development -->
+          <div class="skill-category reveal">
+            <h3 class="category-title"><i class="fa-solid fa-code"></i> Web Development</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>HTML & CSS</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>JavaScript</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 85%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>PHP & Laravel</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile & Programming -->
+          <div class="skill-category reveal" style="transition-delay: 0.1s;">
+            <h3 class="category-title"><i class="fa-solid fa-mobile-screen-button"></i> Mobile & Logic</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Flutter</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Python</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>MySQL</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 85%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Support -->
+          <div class="skill-category reveal" style="transition-delay: 0.2s;">
+            <h3 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Support</h3>
+            <div class="tools-badges">
+              <span class="badge"><i class="fa-solid fa-palette"></i> Canva</span>
+              <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
+              <span class="badge"><i class="fa-brands fa-php"></i> PHP</span>
+              <span class="badge"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="badge"><i class="fa-brands fa-github"></i> GitHub</span>
+              <span class="badge"><i class="fa-solid fa-code"></i> VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">My Projects</h2>
+          <p class="section-subtitle">Beberapa hasil karya terbaik saya</p>
+        </div>
+
+        <!-- Filter & Search -->
+        <div class="projects-controls reveal">
+          <div class="project-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+          </div>
+          <div class="project-search">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search projects...">
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects-container">
+          @foreach($projects as $project)
+          <div class="project-card reveal" data-category="{{ $project->category }}">
+            <div class="project-img">
+              <img src="{{ Str::startsWith($project->image, 'http') ? $project->image : asset($project->image) }}" alt="{{ $project->title }}">
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                @foreach(explode(',', $project->tags) as $tag)
+                <span>{{ trim($tag) }}</span>
+                @endforeach
+              </div>
+              <h3 class="project-title">{{ $project->title }}</h3>
+              <p class="project-desc">{{ $project->description }}</p>
+              <div class="project-links">
+                @if($project->code_link)
+                <a href="{{ $project->code_link }}" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Code</a>
+                @endif
+                @if($project->demo_link)
+                <a href="{{ $project->demo_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                @endif
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="work-experience section bg-light">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Work Experience</h2>
+          <p class="section-subtitle">Pengalaman kerja dan kontribusi profesional saya</p>
+        </div>
+
+        <div class="work-exp-grid" id="work-exp-container">
+          @foreach($work_experiences as $index => $exp)
+          <div class="work-exp-card reveal" style="transition-delay: {{ $index * 0.1 }}s;">
+            <div class="work-exp-header">
+              <div class="work-exp-icon">
+                <i class="{{ $exp->icon ?? 'fa-solid fa-briefcase' }}"></i>
+              </div>
+              <div class="work-exp-meta">
+                <span class="work-exp-period"><i class="fa-solid fa-calendar-days"></i> {{ $exp->period }}</span>
+                <span class="work-exp-badge work-exp-badge--{{ $exp->type }}">
+                  @if($exp->type === 'freelance') Freelance
+                  @elseif($exp->type === 'internship') Internship
+                  @elseif($exp->type === 'full-time') Full-Time
+                  @else Self-Employed
+                  @endif
+                </span>
+              </div>
+            </div>
+
+            <div class="work-exp-body">
+              <h3 class="work-exp-position">{{ $exp->position }}</h3>
+              <span class="work-exp-company"><i class="fa-solid fa-building"></i> {{ $exp->company }}</span>
+              <p class="work-exp-desc">{{ $exp->description }}</p>
+
+              <div class="work-exp-tags">
+                @foreach(explode(',', $exp->tags) as $tag)
+                <span class="work-tag">{{ trim($tag) }}</span>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities & Organizations Section -->
+    <section id="activities" class="activities section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Activities & Organizations</h2>
+          <p class="section-subtitle">Dokumentasi kegiatan dan keterlibatan organisasi saya</p>
+        </div>
+
+        <div class="activities-grid reveal">
+          @foreach($activities as $index => $activity)
+          <div class="activity-card-new reveal" 
+               onclick="openActivityModal('{{ $activity->title }}', '{{ $activity->organization }}', '{{ $activity->image }}', '{{ addslashes($activity->content) }}', '{{ $activity->date }}')">
+            <div class="activity-img-wrapper">
+              <img src="{{ $activity->image }}" alt="{{ $activity->title }}">
+              <div class="activity-tag">{{ $activity->date }}</div>
+            </div>
+            <div class="activity-content-area">
+              <h3 class="activity-name">{{ $activity->title }}</h3>
+              <p class="activity-sub">{{ $activity->organization }}</p>
+              <div class="activity-footer">
+                <span>Detail <i class="fa-solid fa-plus"></i></span>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">My Certificates</h2>
+          <p class="section-subtitle">Pengakuan atas kompetensi dan kontribusi saya</p>
+        </div>
+
+        <!-- Row 1: Programming Course (Scroll Left) -->
+        <div class="cert-category reveal">
+          <h3 class="category-title"><i class="fa-solid fa-graduation-cap"></i> Programming Courses</h3>
+          <div class="cert-slider slider-left">
+            <div class="cert-track">
+              {{-- Loop twice for seamless marquee effect --}}
+              @foreach([1, 2] as $i)
+                @foreach($certificates_programming as $cert)
+                <div class="cert-card">
+                  <div class="cert-img-wrapper">
+                    <img src="{{ Str::startsWith($cert->image, 'http') ? $cert->image : asset($cert->image) }}" alt="{{ $cert->title }}" class="zoom-img">
+                    <div class="img-overlay"><i class="fa-solid fa-search-plus"></i></div>
+                  </div>
+                  <div class="cert-info">
+                    <h4>{{ $cert->title }}</h4>
+                    <p>{{ $cert->organization }}</p>
+                  </div>
+                </div>
+                @endforeach
+              @endforeach
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Academic & Activities (Scroll Right) -->
+        <div class="cert-category reveal" style="margin-top: 4rem;">
+          <h3 class="category-title"><i class="fa-solid fa-users-gear"></i> Academic & Activities</h3>
+          <div class="cert-slider slider-right">
+            <div class="cert-track">
+              {{-- Loop twice for seamless marquee effect --}}
+              @foreach([1, 2] as $i)
+                @foreach($certificates_academic as $cert)
+                <div class="cert-card">
+                  <div class="cert-img-wrapper">
+                    <img src="{{ Str::startsWith($cert->image, 'http') ? $cert->image : asset($cert->image) }}" alt="{{ $cert->title }}" class="zoom-img">
+                    <div class="img-overlay"><i class="fa-solid fa-search-plus"></i></div>
+                  </div>
+                  <div class="cert-info">
+                    <h4>{{ $cert->title }}</h4>
+                    <p>{{ $cert->organization }}</p>
+                  </div>
+                </div>
+                @endforeach
+              @endforeach
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Mari berdiskusi tentang peluang dan kolaborasi</p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info reveal left">
+            <h3>Mari Bekerja Sama!</h3>
+            <p>Saya saat ini terbuka untuk peluang kerja full-time, freelance, maupun kolaborasi proyek. Jika Anda
+              memiliki pertanyaan atau hanya ingin menyapa, jangan ragu untuk menghubungi saya!</p>
+
+            <div class="contact-methods">
+              <div class="contact-item">
+                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:ammarraihan2005@gmail.com">ammarraihan2005@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <a href="https://wa.me/085713086851">+62 857 1308 6851</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+                <div>
+                  <h4>LinkedIn</h4>
+                  <a href="#">linkedin.com/in/ammarraihan25</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form reveal right" id="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim Pesan <i
+                class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Ammar<span>.Id</span></h2>
+          <p>Membangun website yang tidak hanya terlihat bagus, tapi juga bekerja dengan sempurna.</p>
+        </div>
+        <div class="footer-socials">
+          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/ammarraihan25" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.instagram.com/marrae_404?igsh=MXdmdGd6cXlsaHBwaw==" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ammar.Id - All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Zoom Modal -->
+  <div id="cert-modal" class="cert-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="full-cert-img">
+    <div id="caption"></div>
+  </div>
+
+  <!-- Activity Article Modal -->
+  <div id="activity-modal" class="activity-modal">
+    <div class="activity-modal-card">
+      <span class="activity-modal-close">&times;</span>
+      <div class="activity-modal-img">
+        <img id="modal-activity-img" src="" alt="">
+      </div>
+      <div class="activity-modal-body">
+        <div class="activity-modal-meta">
+          <span id="modal-activity-date"></span>
+          <span id="modal-activity-org"></span>
+        </div>
+        <h2 id="modal-activity-title" class="activity-modal-title"></h2>
+        <div id="modal-activity-content" class="activity-modal-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openActivityModal(title, org, img, content, date) {
+      const modal = document.getElementById('activity-modal');
+      document.getElementById('modal-activity-title').innerText = title;
+      document.getElementById('modal-activity-org').innerText = org;
+      document.getElementById('modal-activity-img').src = img;
+      document.getElementById('modal-activity-content').innerHTML = content;
+      document.getElementById('modal-activity-date').innerText = date;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    document.querySelector('.activity-modal-close').onclick = function() {
+      document.getElementById('activity-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('activity-modal');
+      if (event.target == modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
