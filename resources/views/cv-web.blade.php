@@ -295,10 +295,42 @@
           </div>
           @endforeach
         </div>
+
+        <!-- Simplified GitHub Achievement Card -->
+        <div class="github-achievement reveal">
+          <div class="achievement-card">
+            <div class="card-content">
+              <div class="user-info">
+                <div class="avatar-wrapper">
+                  <img src="https://github.com/ammarraihan25.png" alt="Ammar Raihan" class="user-avatar">
+                  <div class="online-indicator"></div>
+                </div>
+                <div class="user-details">
+                  <h3 class="user-name">Ammar Raihan</h3>
+                  <p class="user-handle">@ammarraihan25</p>
+                </div>
+              </div>
+
+              <div class="contribution-display">
+                <div class="display-header">
+                  <span><i class="fa-solid fa-chart-line"></i> Contribution Heatmap</span>
+                  <span class="year-badge">2026</span>
+                </div>
+                <div class="graph-scroll">
+                  <a href="https://github.com/ammarraihan25" target="_blank" rel="noopener noreferrer" class="graph-link">
+                    <img src="https://ghchart.rshah.org/00ff88/ammarraihan25" alt="GitHub Contributions" class="gh-graph">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+
     <!-- Work Experience Section -->
+
     <section id="work-experience" class="work-experience section bg-light">
       <div class="container">
         <div class="section-header reveal">
@@ -309,26 +341,33 @@
         <div class="work-exp-grid" id="work-exp-container">
           @foreach($work_experiences as $index => $exp)
           <div class="work-exp-card reveal" style="transition-delay: {{ $index * 0.1 }}s;">
-            <div class="work-exp-header">
-              <div class="work-exp-icon">
-                <i class="{{ $exp->icon ?? 'fa-solid fa-briefcase' }}"></i>
-              </div>
-              <div class="work-exp-meta">
-                <span class="work-exp-period"><i class="fa-solid fa-calendar-days"></i> {{ $exp->period }}</span>
-                <span class="work-exp-badge work-exp-badge--{{ $exp->type }}">
-                  @if($exp->type === 'freelance') Freelance
-                  @elseif($exp->type === 'internship') Internship
-                  @elseif($exp->type === 'full-time') Full-Time
-                  @else Self-Employed
-                  @endif
-                </span>
-              </div>
+            <div class="work-exp-img">
+              @if($exp->image)
+                <img src="{{ asset($exp->image) }}" alt="{{ $exp->position }}">
+              @else
+                <div class="work-exp-placeholder"><i class="fa-solid fa-briefcase"></i></div>
+              @endif
+              <span class="work-exp-badge work-exp-badge--{{ $exp->type }}">
+                @if($exp->type === 'freelance') Freelance
+                @elseif($exp->type === 'internship') Internship
+                @elseif($exp->type === 'full-time') Full-Time
+                @else Self-Employed
+                @endif
+              </span>
             </div>
 
             <div class="work-exp-body">
-              <h3 class="work-exp-position">{{ $exp->position }}</h3>
-              <span class="work-exp-company"><i class="fa-solid fa-building"></i> {{ $exp->company }}</span>
-              <p class="work-exp-desc">{{ $exp->description }}</p>
+              <div class="work-exp-main-info">
+                <h3 class="work-exp-position">{{ $exp->position }}</h3>
+                <div class="work-exp-sub-info">
+                  <span class="work-exp-company">{{ $exp->company }}</span>
+                  <span class="work-exp-period">{{ $exp->period }}</span>
+                </div>
+              </div>
+
+              <div class="work-exp-details">
+                <p class="work-exp-desc">{{ $exp->description }}</p>
+              </div>
 
               <div class="work-exp-tags">
                 @foreach(explode(',', $exp->tags) as $tag)
@@ -350,23 +389,31 @@
           <p class="section-subtitle">Dokumentasi kegiatan dan keterlibatan organisasi saya</p>
         </div>
 
-        <div class="activities-grid reveal">
-          @foreach($activities as $index => $activity)
-          <div class="activity-card-new reveal" 
-               onclick="openActivityModal('{{ $activity->title }}', '{{ $activity->organization }}', '{{ $activity->image }}', '{{ addslashes($activity->content) }}', '{{ $activity->date }}')">
-            <div class="activity-img-wrapper">
-              <img src="{{ $activity->image }}" alt="{{ $activity->title }}">
-              <div class="activity-tag">{{ $activity->date }}</div>
-            </div>
-            <div class="activity-content-area">
-              <h3 class="activity-name">{{ $activity->title }}</h3>
-              <p class="activity-sub">{{ $activity->organization }}</p>
-              <div class="activity-footer">
-                <span>Detail <i class="fa-solid fa-plus"></i></span>
+        <div class="accordion-container reveal">
+          <div class="accordion-wrapper">
+            @foreach($activities as $index => $activity)
+            <div class="accordion-item {{ $index === 0 ? 'active' : '' }}" onclick="openActivityModal('{{ $activity->title }}', '{{ $activity->organization }}', '{{ $activity->image }}', '{{ addslashes($activity->content) }}', '{{ $activity->date }}')">
+              <div class="accordion-img">
+                <img src="{{ $activity->image }}" alt="{{ $activity->title }}">
+              </div>
+              
+              <!-- Vertical Typography (Visible when collapsed) -->
+              <div class="accordion-vertical-title">
+                <span class="act-num">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                <h3 class="act-title">{{ $activity->title }}</h3>
+              </div>
+
+              <!-- Content (Visible when expanded) -->
+              <div class="accordion-content">
+                <div class="act-meta">
+                  <span class="act-org">{{ $activity->organization }}</span>
+                  <span class="act-date">{{ $activity->date }}</span>
+                </div>
+                <h2 class="act-full-title">{{ $activity->title }}</h2>
               </div>
             </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
       </div>
     </section>
@@ -536,8 +583,36 @@
   </div>
 
   <script>
+    // Typography Bento Navigation & Animation
+    const bentoScroll = document.getElementById('activities-scroll');
+    const bentoNext = document.getElementById('act-next');
+    const bentoPrev = document.getElementById('act-prev');
+    const bentoProgress = document.getElementById('bento-progress');
+
+    if (bentoScroll) {
+      // Navigation
+      if (bentoNext) bentoNext.onclick = () => bentoScroll.scrollBy({ left: 500, behavior: 'smooth' });
+      if (bentoPrev) bentoPrev.onclick = () => bentoScroll.scrollBy({ left: -500, behavior: 'smooth' });
+
+      // Scroll Progress & Parallax
+      bentoScroll.onscroll = () => {
+        // Update Progress Bar
+        const maxScroll = bentoScroll.scrollWidth - bentoScroll.clientWidth;
+        const percentage = (bentoScroll.scrollLeft / maxScroll) * 100;
+        if (bentoProgress) bentoProgress.style.width = `${percentage}%`;
+
+        // Parallax Effect for Images
+        const items = bentoScroll.querySelectorAll('.bento-item');
+        items.forEach(item => {
+          const img = item.querySelector('.parallax-img');
+          const rect = item.getBoundingClientRect();
+          const offset = (rect.left / window.innerWidth) * 100;
+          if (img) img.style.transform = `translateX(${offset * 0.2}px) scale(1.1)`;
+        });
+      };
+    }
+
     function openActivityModal(title, org, img, content, date) {
-      const modal = document.getElementById('activity-modal');
       document.getElementById('modal-activity-title').innerText = title;
       document.getElementById('modal-activity-org').innerText = org;
       document.getElementById('modal-activity-img').src = img;

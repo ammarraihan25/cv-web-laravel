@@ -234,6 +234,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Work Experience Image Zoom
+  const workExpImages = document.querySelectorAll('.work-exp-img');
+  workExpImages.forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+      const img = wrapper.querySelector('img');
+      if (img) {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+        body.style.overflow = "hidden";
+      }
+    });
+  });
+
   const closeModal = () => {
     modal.style.display = "none";
     body.style.overflow = "auto";
