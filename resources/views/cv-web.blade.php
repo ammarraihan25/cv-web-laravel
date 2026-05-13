@@ -84,7 +84,7 @@
         <div class="hero-image reveal right">
           <div class="image-wrapper">
             <!-- Profil Foto: Ganti URL dengan foto Anda -->
-            <img src="/profile.png" alt="{{ $name }}" id="profile-img">
+            <img src="/profile2.png" alt="{{ $name }}" id="profile-img">
             <div class="image-backdrop"></div>
             <div class="floating-badge badge-1">
               <i class="fa-brands fa-laravel" style="color: #FF2D20;"></i> Laravel
@@ -134,7 +134,7 @@
           </div>
           <div class="about-stats reveal right">
             <div class="stat-box">
-              <h3 class="stat-number">15+</h3>
+              <h3 class="stat-number">{{ count($projects) }}</h3>
               <p class="stat-text">Project Selesai</p>
             </div>
             <div class="stat-box">
@@ -143,7 +143,7 @@
             </div>
             <div class="stat-box">
               <h3 class="stat-number">10+</h3>
-              <p class="stat-text">Teknologi Dikuasai</p>
+              <p class="stat-text">Bahasa Pemrograman Dikuasai</p>
             </div>
             <div class="stat-box">
               <h3 class="stat-number">100%</h3>
@@ -170,15 +170,6 @@
               <div class="skill-item">
                 <div class="skill-info">
                   <span>HTML & CSS</span>
-                  <span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 90%;"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span>JavaScript</span>
                   <span>85%</span>
                 </div>
                 <div class="progress-bar">
@@ -187,11 +178,20 @@
               </div>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span>PHP & Laravel</span>
-                  <span>80%</span>
+                  <span>JavaScript</span>
+                  <span>70%</span>
                 </div>
                 <div class="progress-bar">
-                  <div class="progress" style="width: 80%;"></div>
+                  <div class="progress" style="width: 70%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>PHP & Laravel</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%;"></div>
                 </div>
               </div>
             </div>
@@ -204,6 +204,15 @@
               <div class="skill-item">
                 <div class="skill-info">
                   <span>Flutter</span>
+                  <span>60%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 60%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Python</span>
                   <span>75%</span>
                 </div>
                 <div class="progress-bar">
@@ -212,16 +221,41 @@
               </div>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span>Python</span>
-                  <span>80%</span>
+                  <span>MySQL</span>
+                  <span>75%</span>
                 </div>
                 <div class="progress-bar">
-                  <div class="progress" style="width: 80%;"></div>
+                  <div class="progress" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hardware & Technician (PRAKERIN) -->
+          <div class="skill-category reveal" style="transition-delay: 0.2s;">
+            <h3 class="category-title"><i class="fa-solid fa-microchip"></i> Hardware & Technician</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Maintenance & Repair</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 85%;"></div>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span>MySQL</span>
+                  <span>Networking (Crimp, LAN)</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Operating System Install</span>
                   <span>85%</span>
                 </div>
                 <div class="progress-bar">
@@ -232,15 +266,16 @@
           </div>
 
           <!-- Tools & Support -->
-          <div class="skill-category reveal" style="transition-delay: 0.2s;">
+          <div class="skill-category reveal" style="transition-delay: 0.3s; grid-column: 1 / -1;">
             <h3 class="category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Support</h3>
             <div class="tools-badges">
-              <span class="badge"><i class="fa-solid fa-palette"></i> Canva</span>
-              <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-              <span class="badge"><i class="fa-brands fa-php"></i> PHP</span>
+              <span class="badge"><i class="fa-solid fa-code"></i> VS Code</span>
+              <span class="badge"><i class="fa-solid fa-server"></i> Laragon</span>
+              <span class="badge"><i class="fa-solid fa-server"></i> XAMPP</span>
               <span class="badge"><i class="fa-brands fa-git-alt"></i> Git</span>
               <span class="badge"><i class="fa-brands fa-github"></i> GitHub</span>
-              <span class="badge"><i class="fa-solid fa-code"></i> VS Code</span>
+              <span class="badge"><i class="fa-solid fa-book"></i> Jupyter Notebook</span>
+              <span class="badge"><i class="fa-brands fa-php"></i> PHP</span>
             </div>
           </div>
         </div>
@@ -390,25 +425,27 @@
         </div>
 
         <div class="accordion-container reveal">
-          <div class="accordion-wrapper">
+          <div class="accordion-wrapper" id="accordion-wrapper">
             @foreach($activities as $index => $activity)
-            <div class="accordion-item {{ $index === 0 ? 'active' : '' }}" onclick="openActivityModal('{{ $activity->title }}', '{{ $activity->organization }}', '{{ $activity->image }}', '{{ addslashes($activity->content) }}', '{{ $activity->date }}')">
+            <div class="accordion-item {{ $index === 0 ? 'active' : '' }}"
+                 data-title="{{ $activity->title }}"
+                 data-org="{{ $activity->organization }}"
+                 data-img="{{ $activity->image }}"
+                 data-content="{{ addslashes($activity->content) }}"
+                 data-date="{{ $activity->date }}">
               <div class="accordion-img">
                 <img src="{{ $activity->image }}" alt="{{ $activity->title }}">
               </div>
-              
-              <!-- Vertical Typography (Visible when collapsed) -->
+
+              {{-- Collapsed: number + short title only (no date) --}}
               <div class="accordion-vertical-title">
                 <span class="act-num">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
-                <h3 class="act-title">{{ $activity->title }}</h3>
+                <h3 class="act-title">{{ Str::limit($activity->title, 18, '') }}</h3>
               </div>
 
-              <!-- Content (Visible when expanded) -->
+              {{-- Caption always visible when expanded/active --}}
               <div class="accordion-content">
-                <div class="act-meta">
-                  <span class="act-org">{{ $activity->organization }}</span>
-                  <span class="act-date">{{ $activity->date }}</span>
-                </div>
+                <span class="act-org">{{ $activity->organization }}</span>
                 <h2 class="act-full-title">{{ $activity->title }}</h2>
               </div>
             </div>
@@ -477,60 +514,29 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="fullscreen-cta">
+      <div class="cta-bg-glow"></div>
       <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title">Get In Touch</h2>
-          <p class="section-subtitle">Mari berdiskusi tentang peluang dan kolaborasi</p>
-        </div>
-
-        <div class="contact-content">
-          <div class="contact-info reveal left">
-            <h3>Mari Bekerja Sama!</h3>
-            <p>Saya saat ini terbuka untuk peluang kerja full-time, freelance, maupun kolaborasi proyek. Jika Anda
-              memiliki pertanyaan atau hanya ingin menyapa, jangan ragu untuk menghubungi saya!</p>
-
-            <div class="contact-methods">
-              <div class="contact-item">
-                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:ammarraihan2005@gmail.com">ammarraihan2005@gmail.com</a>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
-                <div>
-                  <h4>WhatsApp</h4>
-                  <a href="https://wa.me/085713086851">+62 857 1308 6851</a>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
-                <div>
-                  <h4>LinkedIn</h4>
-                  <a href="#">linkedin.com/in/ammarraihan25</a>
-                </div>
-              </div>
+        <div class="cta-content">
+          <div class="cta-main">
+            <h2 class="cta-word reveal-text" style="transition-delay: 0.1s;">DESIGN.</h2>
+            <h2 class="cta-word reveal-text" style="transition-delay: 0.3s;">DEVELOP.</h2>
+            <h2 class="cta-word reveal-text" style="transition-delay: 0.5s;">DEPLOY.</h2>
+          </div>
+          
+          <div class="cta-footer">
+            <div class="cta-sub reveal" style="transition-delay: 0.7s;">
+              <p>CRAFTED WITH PASSION,</p>
+              <p>POWERED BY CODE.</p>
+            </div>
+            
+            <div class="cta-action reveal" style="transition-delay: 0.9s;">
+              <a href="https://wa.me/6285713086851" class="btn-magnetic">
+                <span>Let's Talk</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
-          <form class="contact-form reveal right" id="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-              <input type="text" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-              <textarea id="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Kirim Pesan <i
-                class="fa-solid fa-paper-plane"></i></button>
-          </form>
         </div>
       </div>
     </section>
@@ -539,20 +545,66 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & Bio -->
+        <div class="footer-column footer-logo reveal">
           <h2>Ammar<span>.Id</span></h2>
-          <p>Membangun website yang tidak hanya terlihat bagus, tapi juga bekerja dengan sempurna.</p>
+          <p>Junior Developer yang berfokus pada pembuatan sistem web modern dan fungsional. Berkomitmen untuk memberikan solusi teknologi terbaik bagi setiap tantangan.</p>
+          <div class="footer-socials">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ammarraihan25" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/marrae_404?igsh=MXdmdGd6cXlsaHBwaw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
-        <div class="footer-socials">
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/ammarraihan25" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://www.instagram.com/marrae_404?igsh=MXdmdGd6cXlsaHBwaw==" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-column footer-links reveal" style="transition-delay: 0.1s;">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Me</a></li>
+            <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> My Skills</a></li>
+            <li><a href="#projects"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+            <li><a href="#activities"><i class="fa-solid fa-chevron-right"></i> Activities</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Specialization -->
+        <div class="footer-column footer-links reveal" style="transition-delay: 0.2s;">
+          <h3>Specialization</h3>
+          <ul>
+            <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> Web Development</a></li>
+            <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> Mobile Development</a></li>
+            <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> UI/UX Design</a></li>
+            <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> System Analyst</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-column reveal" style="transition-delay: 0.3s;">
+          <h3>Contact Me</h3>
+          <div class="footer-contact-info">
+            <div class="contact-detail">
+              <i class="fa-solid fa-envelope"></i>
+              <span>ammarraihan2005@gmail.com</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fa-solid fa-phone"></i>
+              <span>+62 857 1308 6851</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Surakarta, Jawa Tengah, ID</span>
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 Ammar.Id - All rights reserved.</p>
+        <p>&copy; 2026 Ammar.Id. Designed by Ammar Raihan.</p>
+        <div class="footer-bottom-links">
+        </div>
       </div>
     </div>
   </footer>
@@ -583,58 +635,118 @@
   </div>
 
   <script>
-    // Typography Bento Navigation & Animation
-    const bentoScroll = document.getElementById('activities-scroll');
-    const bentoNext = document.getElementById('act-next');
-    const bentoPrev = document.getElementById('act-prev');
-    const bentoProgress = document.getElementById('bento-progress');
+    // ── Fullscreen CTA Reveal ────────────────────────────────────────────
+    const ctaWords = document.querySelectorAll('.reveal-text');
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
 
-    if (bentoScroll) {
-      // Navigation
-      if (bentoNext) bentoNext.onclick = () => bentoScroll.scrollBy({ left: 500, behavior: 'smooth' });
-      if (bentoPrev) bentoPrev.onclick = () => bentoScroll.scrollBy({ left: -500, behavior: 'smooth' });
+    ctaWords.forEach(word => ctaObserver.observe(word));
 
-      // Scroll Progress & Parallax
-      bentoScroll.onscroll = () => {
-        // Update Progress Bar
-        const maxScroll = bentoScroll.scrollWidth - bentoScroll.clientWidth;
-        const percentage = (bentoScroll.scrollLeft / maxScroll) * 100;
-        if (bentoProgress) bentoProgress.style.width = `${percentage}%`;
+    // ── Navbar & Hero Animations ──────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
 
-        // Parallax Effect for Images
-        const items = bentoScroll.querySelectorAll('.bento-item');
-        items.forEach(item => {
-          const img = item.querySelector('.parallax-img');
-          const rect = item.getBoundingClientRect();
-          const offset = (rect.left / window.innerWidth) * 100;
-          if (img) img.style.transform = `translateX(${offset * 0.2}px) scale(1.1)`;
-        });
-      };
+    window.addEventListener('scroll', () => {
+      // Navbar background change
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      // Active link on scroll
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // ── Typewriter Effect ────────────────────────────────────────────────
+    const subtitle = document.querySelector('.hero-subtitle');
+    if (subtitle) {
+      const text = subtitle.innerText;
+      subtitle.innerText = '';
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          subtitle.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, 100);
+        }
+      }
+      setTimeout(type, 1000); // Start after 1s
     }
 
+    // ── Accordion: click to set active, active card shows caption ──────────
+    const accordionWrapper = document.getElementById('accordion-wrapper');
+
+    if (accordionWrapper) {
+      const items = accordionWrapper.querySelectorAll('.accordion-item');
+
+      items.forEach(item => {
+        item.addEventListener('click', function () {
+          const isAlreadyActive = this.classList.contains('active');
+
+          // If already active → open the detail modal
+          if (isAlreadyActive) {
+            openActivityModal(
+              this.dataset.title,
+              this.dataset.org,
+              this.dataset.img,
+              this.dataset.content,
+              this.dataset.date
+            );
+            return;
+          }
+
+          // Otherwise → set this as active
+          items.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
+
+    // ── Activity Detail Modal ──────────────────────────────────────────────
     function openActivityModal(title, org, img, content, date) {
+      const modal = document.getElementById('activity-modal');
       document.getElementById('modal-activity-title').innerText = title;
       document.getElementById('modal-activity-org').innerText = org;
       document.getElementById('modal-activity-img').src = img;
       document.getElementById('modal-activity-content').innerHTML = content;
       document.getElementById('modal-activity-date').innerText = date;
-      
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
-    document.querySelector('.activity-modal-close').onclick = function() {
+    document.querySelector('.activity-modal-close').onclick = function () {
       document.getElementById('activity-modal').classList.remove('active');
       document.body.style.overflow = 'auto';
-    }
+    };
 
-    window.onclick = function(event) {
+    window.addEventListener('click', function (event) {
       const modal = document.getElementById('activity-modal');
-      if (event.target == modal) {
+      if (event.target === modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
-    }
+    });
   </script>
 
 
