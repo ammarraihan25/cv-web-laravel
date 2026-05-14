@@ -15,7 +15,31 @@ class PortfolioSeeder extends Seeder
      */
     public function run(): void
     {
-        // Projects
+        // 1. Projects (4 Projects Only)
+        Project::create([
+            'title' => 'SIMARA: Sistem Informasi Masjid Rahayu',
+            'description' => 'Website profile dan sistem manajemen informasi masjid yang mencakup jadwal kajian, pengelolaan donasi, dan dokumentasi kegiatan jamaah.',
+            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=SIMARA+Masjid',
+            'category' => 'fullstack',
+            'tags' => 'PHP, Laravel, MySQL',
+        ]);
+
+        Project::create([
+            'title' => 'Sistem Kasir Coffeshop Temurindu',
+            'description' => 'Aplikasi Point of Sale (POS) modern yang dirancang khusus untuk manajemen operasional coffee shop, mulai dari pemesanan hingga laporan keuangan.',
+            'image' => 'project3_sistemkasir-img.png',
+            'category' => 'fullstack',
+            'tags' => 'PHP, Laravel, MySQL, JS',
+        ]);
+
+        Project::create([
+            'title' => 'Sistem AI Chatbot Kesehatan Mental Mahasiswa',
+            'description' => 'Chatbot berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan dukungan awal dan edukasi mengenai kesehatan mental bagi mahasiswa.',
+            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=AI+Chatbot',
+            'category' => 'backend',
+            'tags' => 'Python, AI, Flask, NLP',
+        ]);
+
         Project::create([
             'title' => 'Aplikasi Mobile (Kodular)',
             'description' => 'Proyek aplikasi mobile yang dibangun menggunakan platform Kodular, berfokus pada pengalaman pengguna yang intuitif dan fungsionalitas yang responsif.',
@@ -23,147 +47,124 @@ class PortfolioSeeder extends Seeder
             'category' => 'mobile',
             'tags' => 'Kodular, Android, Mobile',
             'demo_link' => 'https://kodular.app/GCW-SVU',
-            'code_link' => null,
         ]);
 
-        Project::create([
-            'title' => 'Sistem Informasi Masjid (SIM)',
-            'description' => 'Website untuk manajemen kas masjid, jadwal kajian, inventaris, dan publikasi artikel untuk jamaah sekitar.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=SIM+Masjid',
-            'category' => 'fullstack',
-            'tags' => 'PHP, Laravel, MySQL',
-            'demo_link' => '#',
-            'code_link' => '#',
-        ]);
-
-        Project::create([
-            'title' => 'REST API E-Commerce',
-            'description' => 'Layanan backend tangguh dengan autentikasi JWT, manajemen produk, cart, dan sistem checkout. Teruji dengan Postman.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=E-Commerce+API',
-            'category' => 'backend',
-            'tags' => 'Python, MySQL, REST API',
-            'demo_link' => null,
-            'code_link' => '#',
-        ]);
-
-        Project::create([
-            'title' => 'Modern Landing Page',
-            'description' => 'Desain landing page responsif dengan animasi smooth scroll dan dark mode, difokuskan pada UI/UX yang elegan.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=Landing+Page+UI',
-            'category' => 'frontend',
-            'tags' => 'HTML, CSS, JS',
-            'demo_link' => '#',
-            'code_link' => '#',
-        ]);
-
-        // Certificates - Programming
-        Certificate::create([
-            'title' => 'Advanced Laravel',
-            'organization' => 'Udemy / Proweb',
-            'image' => 'https://placehold.co/600x400/1a1a2e/00ff88?text=Laravel+Certificate',
-            'category' => 'programming',
-        ]);
-
-        Certificate::create([
-            'title' => 'React Mastery',
-            'organization' => 'Dicoding Indonesia',
-            'image' => 'https://placehold.co/600x400/1a1a2e/00ff88?text=React+Certificate',
-            'category' => 'programming',
-        ]);
-
-        Certificate::create([
-            'title' => 'Python for Data Science',
-            'organization' => 'Coursera',
-            'image' => 'https://placehold.co/600x400/1a1a2e/00ff88?text=Python+Certificate',
-            'category' => 'programming',
-        ]);
-
-        Certificate::create([
-            'title' => 'Fullstack Web Development',
-            'organization' => 'Bangkit Academy',
-            'image' => 'https://placehold.co/600x400/1a1a2e/00ff88?text=Fullstack+Certificate',
-            'category' => 'programming',
-        ]);
-
-        // Certificates - Academic
-        Certificate::create([
-            'title' => 'Panitia Pelatihan Public Speaking',
-            'organization' => 'Politeknik Indonusa Surakarta',
-            'image' => 'row2_1.png',
-            'category' => 'academic',
-        ]);
-
-        Certificate::create([
-            'title' => 'Pelatihan Event Management & Sponsorship',
-            'organization' => 'Politeknik Indonusa Surakarta',
-            'image' => 'row2_2.jpeg',
-            'category' => 'academic',
-        ]);
-
-        Certificate::create([
-            'title' => 'Visiting Profesor: Big Data Trends',
-            'organization' => 'Politeknik Indonusa Surakarta x INTI University',
-            'image' => 'row2_3.jpeg',
-            'category' => 'academic',
-        ]);
-
-        // Work Experiences
+        // 2. Work Experiences (Only PRAKERIN)
         WorkExperience::create([
-            'position' => 'Freelance Junior Developer',
-            'company' => 'Self-Employed',
-            'period' => '2024 - Sekarang',
-            'description' => 'Mengerjakan berbagai proyek klien seperti sistem informasi masjid, website portofolio, dan aplikasi mobile. Fokus pada Laravel, Flutter, dan pengembangan REST API yang terstruktur.',
-            'tags' => 'Laravel, Flutter, REST API, MySQL',
-            'type' => 'freelance',
-            'icon' => 'fa-solid fa-laptop-code',
-        ]);
-
-        WorkExperience::create([
-            'position' => 'Web Developer (Project Based)',
-            'company' => 'Politeknik Indonusa Surakarta',
-            'period' => '2023 - 2024',
-            'description' => 'Berkontribusi dalam pengembangan sistem informasi kampus berbasis web. Menangani desain database, antarmuka pengguna, dan integrasi backend menggunakan PHP & MySQL.',
-            'tags' => 'PHP, MySQL, HTML, CSS',
+            'position' => 'Teknisi Komputer',
+            'company' => 'Internasional Komputer',
+            'period' => '10 Juli - 23 Desember 2023',
+            'image' => 'experience1.png',
+            'description' => 'Bertanggung jawab dalam pemeliharaan perangkat keras dan lunak. Melakukan perakitan PC sesuai spesifikasi, servis rutin komputer klien, instalasi sistem operasi, serta troubleshooting hardware.',
+            'tags' => 'Hardware, Troubleshooting, PC Assembly, Software Installation',
             'type' => 'internship',
-            'icon' => 'fa-solid fa-school',
         ]);
 
-        WorkExperience::create([
-            'position' => 'Frontend Developer (Bootcamp)',
-            'company' => 'Autodidak & Bootcamp Online',
-            'period' => '2022 - 2023',
-            'description' => 'Menyelesaikan program bootcamp intensif dalam web development. Membangun puluhan mini-project menggunakan HTML, CSS, JavaScript, dan mulai mengenal framework modern seperti React.',
-            'tags' => 'HTML, CSS, JavaScript, React',
-            'type' => 'self-employed',
-            'icon' => 'fa-solid fa-code',
+        // 3. Certificates (Programming & Academic)
+        Certificate::create([
+            'title' => 'Belajar Dasar AI',
+            'organization' => 'Dicoding Indonesia',
+            'image' => 'row1_1.png',
+            'category' => 'programming',
         ]);
 
-        // Activities & Organizations
-        Activity::create([
-            'title' => 'Ketua Pelaksana Workshop Laravel',
-            'organization' => 'Himpunan Mahasiswa Informatika',
-            'image' => 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
-            'summary' => 'Mengkoordinasi acara workshop teknis untuk 100+ peserta mahasiswa.',
-            'content' => 'Sebagai Ketua Pelaksana, saya bertanggung jawab atas seluruh rangkaian acara, mulai dari penyusunan materi, pencarian pemateri, hingga koordinasi logistik. Acara ini berhasil menarik minat banyak mahasiswa untuk mendalami framework Laravel dan membangun ekosistem developer di kampus.',
-            'date' => 'Desember 2024',
+        Certificate::create([
+            'title' => 'Memulai Pemrograman dengan Python',
+            'organization' => 'Dicoding Indonesia',
+            'image' => 'row1_2.png',
+            'category' => 'programming',
         ]);
 
-        Activity::create([
-            'title' => 'Relawan Pengajar IT',
-            'organization' => 'Komunitas Literasi Digital',
-            'image' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop',
-            'summary' => 'Memberikan pelatihan dasar koding untuk anak-anak di panti asuhan.',
-            'content' => 'Dalam kegiatan ini, saya mengajarkan dasar-dasar logika pemrograman dan HTML/CSS sederhana. Tujuannya adalah untuk memberikan wawasan tentang dunia teknologi kepada anak-anak sejak dini dan menginspirasi mereka untuk mengeksplorasi potensi di bidang IT.',
-            'date' => 'Agustus 2024',
+        Certificate::create([
+            'title' => 'Univet Islamic Event (UIE) - Strategi Islamic Preneur',
+            'organization' => 'UKMI Univet Bantara Sukoharjo',
+            'image' => 'row2_4.png',
+            'category' => 'academic',
         ]);
 
-        Activity::create([
-            'title' => 'Anggota Divisi Pengembangan Bakat',
-            'organization' => 'BEM Politeknik Indonusa',
-            'image' => 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop',
-            'summary' => 'Terlibat dalam pengelolaan program kerja pengembangan kreativitas mahasiswa.',
-            'content' => 'Bertanggung jawab dalam merancang dan mengeksekusi program-program kreatif seperti kompetisi koding internal dan diskusi teknologi bulanan. Pengalaman ini mengasah kemampuan kolaborasi tim dan manajemen waktu saya dalam lingkungan organisasi yang dinamis.',
-            'date' => '2023 - 2024',
+        Certificate::create([
+            'title' => 'Seminar Kewarganegaraan - Media Museum',
+            'organization' => 'Politeknun Indonusa Surakarta',
+            'image' => 'row2_5.png',
+            'category' => 'academic',
         ]);
+
+        Certificate::create([
+            'title' => 'Literasi Keuangan - Kelola Keuangan Pribadi',
+            'organization' => 'Komunitas Pengusaha TDA Soloraya',
+            'image' => 'row2_6.png',
+            'category' => 'academic',
+        ]);
+
+        Certificate::create([
+            'title' => 'Pelatihan Creative Thinking & Content Creator',
+            'organization' => 'BEM Politeknik Indonusa Surakarta',
+            'image' => 'row2_7.png',
+            'category' => 'academic',
+        ]);
+
+        // 4. Activities & Organizations (7 Items)
+        $activities = [
+            [
+                'title' => 'PKM Pancasila',
+                'organization' => 'Politeknik Indonusa Surakarta',
+                'image' => '/activities &orgnizations/PKM Pancasila_25 jan 2026.jpeg',
+                'summary' => 'Program Kegiatan Mahasiswa bidang Pancasila pada 25 Januari 2026.',
+                'content' => '<p>Program Kegiatan Mahasiswa (PKM) bidang Pendidikan Pancasila yang dilaksanakan pada 25 Januari 2026. Kegiatan ini memperkuat pemahaman dan penghayatan nilai-nilai Pancasila sebagai dasar negara dalam kehidupan bermasyarakat dan bernegara.</p>',
+                'date' => '25 Januari 2026',
+            ],
+            [
+                'title' => "Studi Banding LDK IMMI AS-SHAFFAT × UKMI NURUL 'ILMI",
+                'organization' => "LDK IMMI AS-SHAFFAT",
+                'image' => "/activities &orgnizations/Studi Banding LDK IMMI AS-SHAFFAT X UKMI NURUL 'ILMI 2025.jpeg",
+                'summary' => "Studi Banding antara LDK IMMI AS-SHAFFAT dan UKMI NURUL 'ILMI tahun 2025.",
+                'content' => "<p>Kegiatan Studi Banding yang mempertemukan dua organisasi kemahasiswaan Islam, LDK IMMI AS-SHAFFAT dan UKMI NURUL 'ILMI pada tahun 2025. Kegiatan ini bertujuan untuk berbagi pengalaman, program kerja, dan mempererat tali silaturahmi antar organisasi.</p>",
+                'date' => '2025',
+            ],
+            [
+                'title' => 'Panitia Idul Adha 1446 H',
+                'organization' => 'LDK IMMI AS-SHAFFAT',
+                'image' => '/activities &orgnizations/Panitia Idul Adha 1446 H 7 juni 2025.jpeg',
+                'summary' => 'Berperan sebagai panitia kegiatan Idul Adha 1446 H pada 7 Juni 2025.',
+                'content' => '<p>Berpartisipasi sebagai panitia dalam kegiatan peringatan Hari Raya Idul Adha 1446 H yang dilaksanakan pada 7 Juni 2025. Kegiatan ini merupakan wujud kepedulian sosial dan kebersamaan dalam lingkungan organisasi kemahasiswaan.</p>',
+                'date' => '7 Juni 2025',
+            ],
+            [
+                'title' => 'PKM AI (Artificial Intelligence)',
+                'organization' => 'Politeknik Indonusa Surakarta',
+                'image' => '/activities &orgnizations/PKM AI 23 jan 2025.jpeg',
+                'summary' => 'Program Kegiatan Mahasiswa bidang Kecerdasan Buatan (AI) pada 23 Januari 2025.',
+                'content' => '<p>Program Kegiatan Mahasiswa (PKM) bidang Kecerdasan Buatan (Artificial Intelligence) yang dilaksanakan pada 23 Januari 2025. Kegiatan ini membahas perkembangan teknologi AI dan implementasinya dalam kehidupan sehari-hari serta dunia profesional.</p>',
+                'date' => '23 Januari 2025',
+            ],
+            [
+                'title' => 'PKM Aplikasi Perkantoran',
+                'organization' => 'Politeknik Indonusa Surakarta',
+                'image' => '/activities &orgnizations/PKM Aplikasi Perkantoran 21 nov 2024.jpeg',
+                'summary' => 'Program Kegiatan Mahasiswa Aplikasi Perkantoran pada 21 November 2024.',
+                'content' => '<p>Program Kegiatan Mahasiswa (PKM) bidang Aplikasi Perkantoran yang diselenggarakan pada 21 November 2024. Kegiatan ini meningkatkan kompetensi mahasiswa dalam penggunaan aplikasi perkantoran modern untuk mendukung produktivitas kerja.</p>',
+                'date' => '21 November 2024',
+            ],
+            [
+                'title' => 'PKKMB POLINUS Angkatan 2024',
+                'organization' => 'Politeknik Indonusa Surakarta',
+                'image' => '/activities &orgnizations/PKKMB POLINUS ANGKATAN 2024.jpeg',
+                'summary' => 'Pengenalan Kehidupan Kampus bagi Mahasiswa Baru Politeknik Indonusa Surakarta Angkatan 2024.',
+                'content' => '<p>Kegiatan Pengenalan Kehidupan Kampus bagi Mahasiswa Baru (PKKMB) di Politeknik Indonusa Surakarta (POLINUS) untuk angkatan 2024. Kegiatan ini bertujuan memperkenalkan lingkungan kampus, budaya akademik, dan organisasi kemahasiswaan kepada mahasiswa baru.</p>',
+                'date' => '2024',
+            ],
+            [
+                'title' => 'PRAKERIN Internasional Komputer Solo',
+                'organization' => 'Internasional Komputer Solo',
+                'image' => '/activities &orgnizations/PRAKERIN INTERNASIONAL KOMPUTER SOLO 2023.jpeg',
+                'summary' => 'Praktik Kerja Industri di Internasional Komputer Solo tahun 2023.',
+                'content' => '<p>Praktik Kerja Industri (PRAKERIN) yang dilaksanakan di Internasional Komputer Solo pada tahun 2023. Kegiatan ini memberikan pengalaman kerja nyata di bidang teknologi komputer dan informatika.</p>',
+                'date' => '2023',
+            ],
+        ];
+
+        foreach ($activities as $activity) {
+            Activity::create($activity);
+        }
     }
 }
