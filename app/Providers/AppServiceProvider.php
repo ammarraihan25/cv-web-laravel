@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             try {
                 if (!Schema::hasTable('projects')) {
                     Artisan::call('migrate --force');
+                    Artisan::call('db:seed --force');
                 }
             } catch (\Exception $e) {
                 // Silently fail
