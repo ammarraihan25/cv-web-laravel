@@ -21,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Fix public path for Vercel
+        $this->app->bind('path.public', function() {
+            return base_path('public');
+        });
+
         // Auto-migrate for SQLite in-memory on Vercel
         if (config('database.default') === 'sqlite' && config('database.connections.sqlite.database') === ':memory:') {
             try {
