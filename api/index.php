@@ -1,14 +1,16 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-/** @var Application $app */
+/** @var \Illuminate\Foundation\Application $app */
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-// Force storage path to /tmp for Vercel's read-only filesystem
+// Force storage to /tmp
 $app->useStoragePath('/tmp');
 
-$app->handleRequest(Request::capture());
+// Ensure View Service Provider is registered (Fix for BindingResolutionException [view])
+if (!$app->bound('view')) {
+    $app->register(\Illuminate\View\ViewServiceProvider::class);
+}
+
+$app->handleRequest(\Illuminate\Http\Request::capture());
