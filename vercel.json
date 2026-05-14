@@ -28,6 +28,8 @@
         "CACHE_STORE": "array",
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "sqlite",
-        "DB_DATABASE": ":memory:"
+        "DB_DATABASE": ":memory:",
+        "LARAVEL_SERVICES_PATH": "/tmp/services.php",
+        "LARAVEL_PACKAGES_PATH": "/tmp/packages.php"
     }
 }

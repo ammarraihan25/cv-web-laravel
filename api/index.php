@@ -1,18 +1,14 @@
 <?php
 
-try {
-    require __DIR__ . '/../vendor/autoload.php';
+use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 
-    /** @var \Illuminate\Foundation\Application $app */
-    $app = require_once __DIR__ . '/../bootstrap/app.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-    $app->useStoragePath('/tmp');
+/** @var Application $app */
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
-    $app->handleRequest(\Illuminate\Http\Request::capture());
-} catch (\Throwable $e) {
-    header('Content-Type: text/plain');
-    echo "DIAGNOSTIC ERROR:\n";
-    echo "Message: " . $e->getMessage() . "\n";
-    echo "File: " . $e->getFile() . " (Line: " . $e->getLine() . ")\n";
-    echo "\nTrace:\n" . $e->getTraceAsString();
-}
+// Force storage path to /tmp for Vercel
+$app->useStoragePath('/tmp');
+
+$app->handleRequest(Request::capture());
