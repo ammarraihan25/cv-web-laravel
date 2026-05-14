@@ -9,6 +9,7 @@ class EducationHistorySeeder extends Seeder
 {
     public function run()
     {
+        DB::table('education_histories')->truncate();
         DB::table('education_histories')->insert([
             [
                 'school_name' => 'Politeknik Indonusa Surakarta',

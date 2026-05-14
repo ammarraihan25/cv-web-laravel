@@ -7,6 +7,7 @@ use App\Models\Certificate;
 use App\Models\WorkExperience;
 use App\Models\Activity;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PortfolioSeeder extends Seeder
 {
@@ -15,11 +16,17 @@ class PortfolioSeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing data to prevent duplication
+        Project::truncate();
+        WorkExperience::truncate();
+        Certificate::truncate();
+        Activity::truncate();
+
         // 1. Projects (4 Projects Only)
         Project::create([
             'title' => 'SIMARA: Sistem Informasi Masjid Rahayu',
             'description' => 'Website profile dan sistem manajemen informasi masjid yang mencakup jadwal kajian, pengelolaan donasi, dan dokumentasi kegiatan jamaah.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=SIMARA+Masjid',
+            'image' => 'project2_simara-img.png',
             'category' => 'fullstack',
             'tags' => 'PHP, Laravel, MySQL',
         ]);
@@ -33,20 +40,20 @@ class PortfolioSeeder extends Seeder
         ]);
 
         Project::create([
-            'title' => 'Sistem AI Chatbot Kesehatan Mental Mahasiswa',
-            'description' => 'Chatbot berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan dukungan awal dan edukasi mengenai kesehatan mental bagi mahasiswa.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=AI+Chatbot',
-            'category' => 'backend',
-            'tags' => 'Python, AI, Flask, NLP',
-        ]);
-
-        Project::create([
             'title' => 'Aplikasi Mobile (Kodular)',
             'description' => 'Proyek aplikasi mobile yang dibangun menggunakan platform Kodular, berfokus pada pengalaman pengguna yang intuitif dan fungsionalitas yang responsif.',
             'image' => 'project-img.png',
             'category' => 'mobile',
             'tags' => 'Kodular, Android, Mobile',
             'demo_link' => 'https://kodular.app/GCW-SVU',
+        ]);
+
+        Project::create([
+            'title' => 'Sistem AI Chatbot Kesehatan Mental Mahasiswa',
+            'description' => 'Chatbot berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan dukungan awal dan edukasi mengenai kesehatan mental bagi mahasiswa.',
+            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=AI+Chatbot',
+            'category' => 'backend',
+            'tags' => 'Python, AI, Flask, NLP',
         ]);
 
         // 2. Work Experiences (Only PRAKERIN)
@@ -117,7 +124,7 @@ class PortfolioSeeder extends Seeder
                 'title' => "Studi Banding LDK IMMI AS-SHAFFAT × UKMI NURUL 'ILMI",
                 'organization' => "LDK IMMI AS-SHAFFAT",
                 'image' => "/activities &orgnizations/Studi Banding LDK IMMI AS-SHAFFAT X UKMI NURUL 'ILMI 2025.jpeg",
-                'summary' => "Studi Banding antara LDK IMMI AS-SHAFFAT dan UKMI NURUL 'ILMI tahun 2025.",
+                'summary' => "Studi Banding antara LDK IMMI AS-SHAFFAT and UKMI NURUL 'ILMI tahun 2025.",
                 'content' => "<p>Kegiatan Studi Banding yang mempertemukan dua organisasi kemahasiswaan Islam, LDK IMMI AS-SHAFFAT dan UKMI NURUL 'ILMI pada tahun 2025. Kegiatan ini bertujuan untuk berbagi pengalaman, program kerja, dan mempererat tali silaturahmi antar organisasi.</p>",
                 'date' => '2025',
             ],
