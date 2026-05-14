@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,12 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
         $this->call(EducationHistorySeeder::class); 
         $this->call(PortfolioSeeder::class);
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        
+        // Manual user creation to avoid dependency on Faker in production
+        if (!User::where('email', 'ammarraihan2005@gmail.com')->exists()) {
+            User::create([
+                'name' => 'Muhamad Ammar Raihan Ardiyanto',
+                'email' => 'ammarraihan2005@gmail.com',
+                'password' => Hash::make('password'),
+            ]);
+        }
     }
 }
