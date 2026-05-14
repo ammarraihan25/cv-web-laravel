@@ -2181,37 +2181,72 @@ img {
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
   .accordion-wrapper {
     height: auto;
     flex-direction: column;
+    gap: 1rem;
   }
 
   .accordion-item {
-    height: 120px;
+    height: 160px; /* Increased from 120px */
     flex: none;
+    border-radius: 15px;
   }
 
   .accordion-item:hover {
-    height: 400px;
+    height: 350px;
     flex: none;
   }
 
   .accordion-vertical-title {
     flex-direction: row;
     justify-content: flex-start;
+    padding: 0 1.5rem;
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .act-title {
     writing-mode: horizontal-tb;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
+    font-size: 0.85rem;
+    max-height: none;
+    white-space: normal;
   }
 
   .act-num {
-    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+
+  .accordion-content {
+    padding: 1.5rem;
+  }
+
+  .act-full-title {
+    font-size: 1.3rem;
   }
 }
 
-/* Specific Activity Modal Adjustments */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  
+  .hero {
+    padding-top: 7rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
 .activity-modal {
   position: fixed;
   top: 0;
