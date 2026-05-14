@@ -1,8 +1,8 @@
 <?php
 
-// Force manifest paths to /tmp before anything else
-putenv('LARAVEL_SERVICES_PATH=/tmp/services.php');
-putenv('LARAVEL_PACKAGES_PATH=/tmp/packages.php');
+// Laravel 11 specific cache manifest environment variables
+putenv('LARAVEL_PACKAGES_CACHE=/tmp/packages.php');
+putenv('LARAVEL_SERVICES_CACHE=/tmp/services.php');
 
 require __DIR__ . '/../vendor/autoload.php';
 
