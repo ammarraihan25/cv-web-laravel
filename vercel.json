@@ -17,7 +17,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_KEY": "base64:oMth1c1XkgfdBkbqk/BQJCWTMIG1kXDfZmbBEk33Las=",
-        "APP_URL": "https://cv-web-laravel.vercel.app",
+        "APP_URL": "https://ammar-raihan.vercel.app",
         "ASSET_URL": "/",
         "LOG_CHANNEL": "stderr",
         "VIEW_COMPILED_PATH": "/tmp",
