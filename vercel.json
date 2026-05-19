@@ -15,7 +15,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_URL": "https://ammar-raihan.vercel.app",
         "ASSET_URL": "/",
         "LOG_CHANNEL": "stderr",
@@ -24,7 +24,7 @@
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "sqlite",
         "DB_DATABASE": ":memory:",
-        "LARAVEL_SERVICES_CACHE": "/tmp/services.php",
-        "LARAVEL_PACKAGES_CACHE": "/tmp/packages.php"
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php"
     }
 }
