@@ -15,7 +15,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://ammar-raihan.vercel.app",
         "ASSET_URL": "/",
         "LOG_CHANNEL": "stderr",
