@@ -51,7 +51,7 @@ class PortfolioSeeder extends Seeder
         Project::create([
             'title' => 'Sistem AI Chatbot Kesehatan Mental Mahasiswa',
             'description' => 'Chatbot berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan dukungan awal dan edukasi mengenai kesehatan mental bagi mahasiswa.',
-            'image' => 'https://placehold.co/800x500/1a1a2e/00ff88?text=AI+Chatbot',
+            'image' => 'project4_chatbot-img.png',
             'category' => 'backend',
             'tags' => 'Python, AI, Flask, NLP',
         ]);
