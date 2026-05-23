@@ -133,7 +133,7 @@
             </div>
 
 
-            <a href="/public/cv-dummy.pdf" class="btn btn-outline download-cv" download>
+            <a href="{{ asset('CV_AMMAR.pdf') }}" class="btn btn-outline download-cv" download>
               <i class="fa-solid fa-download"></i> Download CV
             </a>
           </div>
